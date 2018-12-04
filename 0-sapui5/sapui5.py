@@ -8,12 +8,19 @@ class UI:
         })
 
     @property
+    def my_text(self):
+        return sap.m.Text({
+            'text': "salt, pepper and oregano",
+        })
+
+    @property
     def openui5(self):
         core = sap.ui.getCore()
         return core
 
     def go(self):
         self.my_button.placeAt("content");
+        self.my_text.placeAt('greeting')
 
 
     def build(self):

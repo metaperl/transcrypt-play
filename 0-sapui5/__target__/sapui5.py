@@ -1,4 +1,3 @@
-
 class UI:
 
     @property
@@ -8,10 +7,17 @@ class UI:
             'press': lambda : sap.m.MessageToast.show("Hello World")
         })
 
-    def build(self):
+    @property
+    def openui5(self):
         core = sap.ui.getCore()
-        def go():
-            self.my_button.placeAt("content");
-        core.attachInit(go)
+        return core
+
+    def go(self):
+        self.my_button.placeAt("content");
+
+
+    def build(self):
+        self.openui5.attachInit(self.go)
+
 
 ui = UI()
